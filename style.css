@@ -317,3 +317,8 @@ ul li i {
 		height: auto;
 	}
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
