@@ -150,6 +150,7 @@ body {
 	letter-spacing: 0.5px;
 	box-shadow: 0 4px 15px rgba(111, 66, 208, 0.3);
 	transition: transform 0.2s ease;
+	cursor: pointer;
 }
 
 .profile-bio p:first-of-type:hover {
