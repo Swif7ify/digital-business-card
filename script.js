@@ -1,24 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-	const bioHeader = document.querySelector(".bio-header");
-	const bioSpan = bioHeader?.nextElementSibling;
-	let showingSkills = false;
+const businessCard = document.getElementById("businessCard");
 
-	const skillsHTML = `
-		<span>My Skills include  web, game & app development, 3D modelling, prototyping. My approach combines creativity with technical expertise, ensuring that every project is not only functional but also visually stunning.</span
-        >
-	`;
-	const aboutMeHTML = `Hi, I'm Earl Romeo Ordovez, a passionate web and game developer with a knack for creating immersive digital experiences. With a strong background in both frontend and backend development.`;
+businessCard.addEventListener("click", function (e) {
+	if (e.target.closest(".social-icon, a, button, .bio-toggle, input, textarea, select, label")) {
+		return;
+	}
 
-	if (bioHeader && bioSpan) {
-		bioHeader.addEventListener("click", function () {
-			if (!showingSkills) {
-				bioHeader.textContent = "My Skills ×";
-				bioSpan.innerHTML = skillsHTML;
-			} else {
-				bioHeader.textContent = "About Me +";
-				bioSpan.textContent = aboutMeHTML;
-			}
-			showingSkills = !showingSkills;
-		});
+	this.classList.toggle("flipped");
+});
+
+businessCard.addEventListener("mouseenter", function () {
+	this.classList.add("hover");
+});
+
+businessCard.addEventListener("mouseleave", function () {
+	this.classList.remove("hover");
+});
+
+businessCard.addEventListener("keydown", function (e) {
+	if (document.activeElement !== this) return;
+	if (e.key === "Enter" || e.key === " ") {
+		e.preventDefault();
+		this.classList.toggle("flipped");
 	}
 });
+
+businessCard.setAttribute("tabindex", "0");
+
+const bioToggle = document.getElementById("bioToggle");
+const aboutText = document.getElementById("aboutText");
+let showingAlt = false;
+
+if (bioToggle && aboutText) {
+	bioToggle.addEventListener("click", function () {
+		if (!showingAlt) {
+			aboutText.textContent =
+				"Earl Romeo Ordovez is a passionate web and game developer with expertise in both frontend and backend development, specializing in creating immersive digital experiences.";
+			bioToggle.textContent = "Close";
+		} else {
+			aboutText.textContent =
+				"Passionate full-stack developer with 5+ years of experience creating innovative web solutions. Specialized in React, Node.js, and cloud technologies. Always eager to tackle new challenges and build amazing digital experiences.";
+			bioToggle.textContent = "Bio";
+		}
+		showingAlt = !showingAlt;
+	});
+}
