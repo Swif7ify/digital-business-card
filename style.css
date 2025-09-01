@@ -62,7 +62,7 @@ a {
 
 .card-back {
 	transform: rotateY(180deg);
-	background: linear-gradient(145deg, #2c3e50, #34495e);
+	background: linear-gradient(145deg, #2c3e50, #131d27);
 	color: white;
 }
 
@@ -251,8 +251,7 @@ a {
 
 @media (max-width: 480px) {
 	.card-container {
-		width: 300px;
-		height: 500px;
+		width: 100%;
 	}
 
 	.card-face {
@@ -267,5 +266,15 @@ a {
 
 	.name {
 		font-size: 24px;
+	}
+}
+
+@media (max-width: 375px) {
+	.card-container {
+		height: 570px;
+	}
+
+	body {
+		padding: 5px;
 	}
 }
